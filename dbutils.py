@@ -1,6 +1,7 @@
 import pymysql as pm
 from configparser import ConfigParser
 from queries import create_table_query,use_database_query
+from sqlalchemy import create_engine
 
 db_conf = ConfigParser()
 db_conf.read('db_config.ini')
@@ -32,5 +33,6 @@ class Dbutils:
         print("use database query is : \n{}".format(query))
         self.cursor.execute(query)
 
-    def insert_records(self):
-        pass
+    def insert_records(self,df,table_name):
+        engine=create_engine(f"mysql+pymysql://{self.username}:{self.password}@{self.endpoint}/{self.database}")
+        df.to_sql(name=table_name, con=engine, if_exists="append", index=False)
