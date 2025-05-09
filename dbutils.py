@@ -13,6 +13,7 @@ class Dbutils:
         self.password = db_conf['Db_config']['Password']
         self.port = db_conf['Db_config']['Port']
         self.database = db_conf['Db_config']['database']
+        self.table_name = db_conf['Db_config']['table_name']
 
     def db_connect(self):
         try:
@@ -23,8 +24,8 @@ class Dbutils:
         except Exception as e:
             print("Exception {} occured while trying to establish connection.".format(e))
     
-    def create_table(self,table_name):
-        query = create_table_query.format(table_name=table_name)
+    def create_table(self):
+        query = create_table_query.format(table_name=self.table_name)
         print("query is : \n{}".format(query))
         self.cursor.execute(query)
 
@@ -33,6 +34,6 @@ class Dbutils:
         print("use database query is : \n{}".format(query))
         self.cursor.execute(query)
 
-    def insert_records(self,df,table_name):
+    def insert_records(self,df):
         engine=create_engine(f"mysql+pymysql://{self.username}:{self.password}@{self.endpoint}/{self.database}")
-        df.to_sql(name=table_name, con=engine, if_exists="append", index=False)
+        df.to_sql(name=self.table_name, con=engine, if_exists="append", index=False)

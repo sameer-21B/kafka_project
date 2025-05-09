@@ -12,7 +12,7 @@ create_table_query =  \
 	Km_driven integer,
 	Seller_type varchar(20),
 	Fuel_type varchar(20),
-	Transmission_te varchar(20),
+	Transmission_type varchar(20),
 	Mileage float,
 	Engine integer,
 	Max_power float,
