@@ -1,4 +1,5 @@
 import pymysql as pm
+import pandas as pd
 from configparser import ConfigParser
 from queries import create_table_query,use_database_query
 from sqlalchemy import create_engine
@@ -14,6 +15,7 @@ class Dbutils:
         self.port = db_conf['Db_config']['Port']
         self.database = db_conf['Db_config']['database']
         self.table_name = db_conf['Db_config']['table_name']
+        self.engine=create_engine(f"mysql+pymysql://{self.username}:{self.password}@{self.endpoint}/{self.database}")
 
     def db_connect(self):
         try:
@@ -35,5 +37,10 @@ class Dbutils:
         self.cursor.execute(query)
 
     def insert_records(self,df):
-        engine=create_engine(f"mysql+pymysql://{self.username}:{self.password}@{self.endpoint}/{self.database}")
-        df.to_sql(name=self.table_name, con=engine, if_exists="append", index=False)
+        df.to_sql(name=self.table_name, con=self.engine, if_exists="append", index=False)
+    
+    def run_query(self,query):
+        return pd.read_sql_query(query,self.engine)
+
+    def close_connection(self):
+        self.cnx.close()

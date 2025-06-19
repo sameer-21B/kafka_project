@@ -2,3 +2,6 @@ kafka_test
 __pycache__
 rds_conn_parameters.txt
 test_kafka.txt
+packages
+*.log
+*.zip
