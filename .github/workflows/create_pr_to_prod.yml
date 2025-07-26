@@ -31,6 +31,18 @@ jobs:
         echo "$PWD"
         echo "$HOME"
         mkdir Logs
+
+    - name: Configuring S3 access
+      env:
+        AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
+        AWS_SECRET_ACCESS_KEY: ${{secret.AWS_SECRET_ACCESS_KEY}}
+      run: |
+        # Your commands that require AWS credentials
+        # For example, configuring AWS CLI:
+        aws configure set aws_access_key_id "$AWS_ACCESS_KEY_ID"
+        aws configure set aws_secret_access_key "$AWS_SECRET_ACCESS_KEY"
+        aws configure set default.region ap-south-1
+        aws s3 ls
       
     - name: Run Python Script
       id: run_script
