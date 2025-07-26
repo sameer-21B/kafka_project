@@ -66,7 +66,7 @@ def main_function(a=0,b=0):
         logger.info(f"Commiting config data changes.")
         gc_obj.write_config_data()
         db_obj.insert_records(batch_of_data)
-        logger.info(f"records from index {int(gc_obj.current_global_counter_val)-int(gc_obj.records_in_a_batch)} to {int(gc_obj.current_global_counter_val)} were inserted into table.")
+        logger.info(f"Records from index {int(gc_obj.current_global_counter_val)-int(gc_obj.records_in_a_batch)} to {int(gc_obj.current_global_counter_val)} were inserted into table.")
         time.sleep(5)
 
     logger.info("Resetting Global counter value to Zero.")
