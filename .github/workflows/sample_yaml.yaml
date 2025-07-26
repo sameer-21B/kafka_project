@@ -8,8 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     steps:
-      -Name : Sample script print
-      -run: |
-        echo "actions is running fine."
+      - Name : Sample script print
+        run: |
+          echo "actions is running fine."
