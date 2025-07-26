@@ -1,4 +1,4 @@
-Name : Sample yaml file to test actions
+name : Sample yaml file to test actions
 
 on:
   push:
