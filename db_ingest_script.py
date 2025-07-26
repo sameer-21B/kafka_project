@@ -12,7 +12,7 @@ import logging
 import sys,os
 
 logger=logging.getLogger(__name__)
-logfile_nm=str(__file__)[:-3]+'_'+str(datetime.now().strftime('%Y%m%d-%H%M%S')).split('/')
+logfile_nm=(str(__file__)[:-3]+'_'+str(datetime.now().strftime('%Y%m%d-%H%M%S'))).split('/')[-1]
 print("logfile_nm is :",logfile_nm)
 
 logging.basicConfig(filename=f'./Logs/{logfile_nm}.log',
