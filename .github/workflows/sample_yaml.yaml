@@ -1,0 +1,15 @@
+Name : Sample yaml file to test actions
+
+on:
+  push:
+    branches:
+      main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      -Name : Sample script print
+      -run: |
+        echo "actions is running fine."
