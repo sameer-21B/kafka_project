@@ -28,6 +28,8 @@ jobs:
 
     - name: Creating Logs folder
       run: |
+        echo "$PWD"
+        echo "$HOME"
         mkdir Logs
       
     - name: Run Python Script
