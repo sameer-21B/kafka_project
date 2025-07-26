@@ -69,7 +69,7 @@ def main_function(a=0,b=0):
         logger.info(f"records from index {int(gc_obj.current_global_counter_val)-int(gc_obj.records_in_a_batch)} to {int(gc_obj.current_global_counter_val)} were inserted into table.")
         time.sleep(5)
 
-    logger.info("Resetting global counter value to zero.")
+    logger.info("Resetting Global counter value to Zero.")
     gc_obj.reset_global_counter_val()
 
 if __name__=="__main__":
