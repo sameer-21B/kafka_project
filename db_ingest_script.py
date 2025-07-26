@@ -11,17 +11,17 @@ from datetime import datetime
 import logging
 import sys,os
 
+logger=logging.getLogger(os.path.basename(__file__))
+logfile_nm=str(os.path.basename(__file__))[:-3]+'_'+str(datetime.now().strftime('%Y%m%d-%H%M%S'))
+
+logging.basicConfig(filename=f'./Logs/{logfile_nm}.log',
+                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                    filemode='w')
+
+logger.setLevel(logging.INFO)
 
 
 def main_function(a=0,b=0):
-    logger=logging.getLogger(os.path.basename(__file__))
-    logfile_nm=str(os.path.basename(__file__))[:-3]+'_'+str(datetime.now().strftime('%Y%m%d-%H%M%S'))
-    
-    logging.basicConfig(filename=f'./Logs/{logfile_nm}.log',
-                        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                        filemode='w')
-
-    logger.setLevel(logging.INFO)
     logger.info(f"Name of Log file is {logfile_nm}")
 
     car_data=pd.read_csv('s3://input-data-car-sales/cardekho_dataset.csv',index_col=0)
