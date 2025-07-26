@@ -45,7 +45,7 @@ def main_function(a=0,b=0):
             create_tbl = False
 
     if create_tbl == True : 
-        logger.info(f"{db_obj.table_name} table was created.")
+        logger.info(f"{db_obj.table_name} Table was created.")
         db_obj.create_table()
 
     if len(sys.argv)>1:
