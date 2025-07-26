@@ -9,6 +9,7 @@ import pandas as pd
 import time,sys
 from datetime import datetime
 import logging
+import sys
 
 
 logger=logging.getLogger(__file__)
@@ -73,4 +74,8 @@ def main_function(a=0,b=0):
     gc_obj.reset_global_counter_val()
 
 if __name__=="__main__":
-    main_function()
+    try:
+        main_function()
+    except Exception as e:
+        print(f"Error: {e}")
+        sys.exit(1)
