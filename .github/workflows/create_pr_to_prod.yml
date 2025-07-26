@@ -47,7 +47,7 @@ jobs:
     - name: Run Python Script
       id: run_script
       run: |
-        python db_ingest_script.py
+        python db_ingest_script.py 20
       continue-on-error: false
     
     - name: Check for changes and Create PR
