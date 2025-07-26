@@ -32,9 +32,9 @@ def main_function(a=0,b=0):
 
     try:
         db_obj.db_connect()
-        logger.info("DB Connection was successful")
+        logger.info("DB Connection was Successful.")
     except Exception as e:
-        logger.error(f"Exception {e} occured while connecting to database")
+        logger.error(f"Exception {e} occured while Connecting to Database")
 
     db_obj.cursor.execute('show tables;')
     output=db_obj.cursor.fetchall()
