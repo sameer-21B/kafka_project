@@ -9,19 +9,21 @@ import pandas as pd
 import time,sys
 from datetime import datetime
 import logging
-import sys
+import sys,os
 
-
-logger=logging.getLogger(__file__)
-logfile_nm=str(__file__)[:-3]+'_'+str(datetime.now().strftime('%Y%m%d-%H%M%S'))
-logging.basicConfig(filename=f'./Logs/{logfile_nm}.log',
-                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                    filemode='w')
-
-logger.setLevel(logging.INFO)
 
 
 def main_function(a=0,b=0):
+    logger=logging.getLogger(os.path.basename(__file__))
+    logfile_nm=str(os.path.basename(__file__))[:-3]+'_'+str(datetime.now().strftime('%Y%m%d-%H%M%S'))
+    
+    logging.basicConfig(filename=f'./Logs/{logfile_nm}.log',
+                        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                        filemode='w')
+
+    logger.setLevel(logging.INFO)
+    logger.info(f"Name of Log file is {logfile_nm}")
+
     car_data=pd.read_csv('s3://input-data-car-sales/cardekho_dataset.csv',index_col=0)
     car_data['Idx']=range(1,len(car_data)+1)
     car_data=car_data[['Idx']+list(car_data.columns)[:-1]]
