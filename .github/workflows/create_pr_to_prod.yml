@@ -30,7 +30,7 @@ jobs:
       id: run_script
       run: |
         python db_ingest_script.py
-      continue_on_error: false
+      continue-on-error: false
     
     - name: Check for changes and Create PR
       if : success() && github.ref == 'refs/heads/main'
