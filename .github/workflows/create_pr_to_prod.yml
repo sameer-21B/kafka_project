@@ -63,7 +63,7 @@ jobs:
       run : |
         #configure git
         git config user.name "sameer-21B"
-        git config user.email "sameerbhosale1999@gmail.com
+        git config user.email "sameerbhosale1999@gmail.com"
 
         if git diff prod main --exit-code --quiet -- db_config.ini dbutils.py config.ini queries.py configuration.py db_ingest_script.py requirements.txt; then 
           echo "No changes detected by the python script. Skipping PR creation."
