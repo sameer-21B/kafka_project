@@ -37,7 +37,7 @@ def main_function(a=0,b=0):
     gc_obj=gc()
     db_obj=db()
 
-    print("trying to connect to snowflake")
+    print("trying to connect to DB")
 
     try:
         db_obj.db_connect()
@@ -45,7 +45,7 @@ def main_function(a=0,b=0):
     except Exception as e:
         logger.error(f"Exception {e} occured while Connecting to Database")
     
-    print("snowflake connection has been established")
+    print("DB connection has been established")
 
     db_obj.cursor.execute('show tables;')
     output=db_obj.cursor.fetchall()
