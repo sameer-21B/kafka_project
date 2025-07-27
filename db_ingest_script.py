@@ -70,7 +70,7 @@ def main_function(a=0,b=0):
 
     while (int(gc_obj.current_global_counter_val)+int(gc_obj.records_in_a_batch)<=len(car_data) \
         and int(gc_obj.current_global_counter_val)+int(gc_obj.records_in_a_batch)<=records):
-        logger.info(f"Current value of Global Counter is {gc_obj.current_global_counter_val}")
+        logger.info(f"Current Value of Global Counter is {gc_obj.current_global_counter_val}")
         batch_of_data = gc_obj.fetch_records(car_data)
         logger.info(f"Incrementing Global counter value by {gc_obj.records_in_a_batch}")
         gc_obj.set_global_counter_val()
