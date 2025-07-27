@@ -66,7 +66,7 @@ jobs:
         git config user.name "sameer-21B"
         git config user.email "sameerbhosale1999@gmail.com"
 
-        if git diff prod main --exit-code --quiet -- db_config.ini dbutils.py config.ini queries.py configuration.py db_ingest_script.py requirements.txt; then 
+        if git diff prod main --exit-code --quiet -- db_config.ini .gitignore dbutils.py config.ini queries.py configuration.py db_ingest_script.py requirements.txt; then 
           echo "No changes detected by the python script. Skipping PR creation."
         else
           BRANCH_NAME="auto-pr-$(date +%Y%m%d%H%M%S)"
@@ -79,9 +79,9 @@ jobs:
           echo creating PR Branch : $BRANCH_NAME
           git checkout -b $BRANCH_NAME 
 
-          git checkout main -- db_config.ini dbutils.py config.ini queries.py configuration.py db_ingest_script.py requirements.txt
+          git checkout main -- db_config.ini .gitignore dbutils.py config.ini queries.py configuration.py db_ingest_script.py requirements.txt
 
-          git add db_config.ini dbutils.py config.ini queries.py configuration.py db_ingest_script.py requirements.txt
+          git add db_config.ini .gitignore dbutils.py config.ini queries.py configuration.py db_ingest_script.py requirements.txt
           git commit -m "Automating changes for PR script"
 
           git push origin $BRANCH_NAME
