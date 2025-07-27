@@ -1,0 +1,23 @@
+2025-07-27 09:34:09,074 - __main__ - INFO - Name of Log File : db_ingest_script_20250727-093409
+2025-07-27 09:34:11,845 - __main__ - INFO - Dataframe has been created
+2025-07-27 09:34:13,340 - __main__ - INFO - DB Connection was Successful.
+2025-07-27 09:34:13,567 - __main__ - INFO - cardekho_sales_dtl Table is already created.
+2025-07-27 09:34:13,567 - __main__ - INFO - Number of Records to be processed is 20.
+2025-07-27 09:34:13,567 - __main__ - INFO - Resetting Global counter value to zero.
+2025-07-27 09:34:13,568 - __main__ - INFO - Current Value of Global Counter is 0
+2025-07-27 09:34:13,568 - __main__ - INFO - Incrementing Global counter value by 5
+2025-07-27 09:34:13,568 - __main__ - INFO - Commiting Config data changes.
+2025-07-27 09:34:17,205 - __main__ - INFO - Records from index 0 to 5 were inserted into table.
+2025-07-27 09:34:22,205 - __main__ - INFO - Current Value of Global Counter is 5
+2025-07-27 09:34:22,206 - __main__ - INFO - Incrementing Global counter value by 5
+2025-07-27 09:34:22,206 - __main__ - INFO - Commiting Config data changes.
+2025-07-27 09:34:23,119 - __main__ - INFO - Records from index 5 to 10 were inserted into table.
+2025-07-27 09:34:28,120 - __main__ - INFO - Current Value of Global Counter is 10
+2025-07-27 09:34:28,120 - __main__ - INFO - Incrementing Global counter value by 5
+2025-07-27 09:34:28,120 - __main__ - INFO - Commiting Config data changes.
+2025-07-27 09:34:29,035 - __main__ - INFO - Records from index 10 to 15 were inserted into table.
+2025-07-27 09:34:34,035 - __main__ - INFO - Current Value of Global Counter is 15
+2025-07-27 09:34:34,036 - __main__ - INFO - Incrementing Global counter value by 5
+2025-07-27 09:34:34,036 - __main__ - INFO - Commiting Config data changes.
+2025-07-27 09:34:34,950 - __main__ - INFO - Records from index 15 to 20 were inserted into table.
+2025-07-27 09:34:39,950 - __main__ - INFO - Resetting Global Counter value to Zero.
