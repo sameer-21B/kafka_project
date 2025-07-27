@@ -37,7 +37,7 @@ def main_function(a=0,b=0):
     gc_obj=gc()
     db_obj=db()
 
-    print("trying to connect to DB")
+    print("Trying to connect to DB")
 
     try:
         db_obj.db_connect()
