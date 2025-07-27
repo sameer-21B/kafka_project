@@ -68,7 +68,7 @@ jobs:
         if git diff prod main --exit-code --quiet -- db_config.ini dbutils.py config.ini queries.py configuration.py db_ingest_script.py requirements.txt; then 
           echo "No changes detected by the python script. Skipping PR creation."
         else
-          BRANCH_NAME = "auto-pr-$(date +%Y%m%d%H%M%S)"
+          BRANCH_NAME="auto-pr-$(date +%Y%m%d%H%M%S)"
           echo Branch_name is $BRANCH_NAME
           git checkout -b $BRANCH_NAME 
 

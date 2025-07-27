@@ -65,7 +65,7 @@ def main_function(a=0,b=0):
         records=len(car_data)
     logger.info(f"Number of Records to be processed is {records}.")
 
-    logger.info("Resetting global counter value to zero.")
+    logger.info("Resetting Global counter value to zero.")
     gc_obj.reset_global_counter_val()
 
     while (int(gc_obj.current_global_counter_val)+int(gc_obj.records_in_a_batch)<=len(car_data) \
