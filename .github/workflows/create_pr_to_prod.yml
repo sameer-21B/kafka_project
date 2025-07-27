@@ -54,8 +54,8 @@ jobs:
       if : success() && github.ref == 'refs/heads/main'
       run : |
         #configure git
-        git config user.name "Github Action Bot"
-        git config user.email "actions@github.com"
+        git config user.name "sameer-21B"
+        git config user.email "sameerbhosale1999@gmail.com"
 
         if git diff --exit-code --quiet; then 
           echo "No changes detected by the python script. Skipping PR creation."
