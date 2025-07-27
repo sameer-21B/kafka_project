@@ -76,13 +76,19 @@ jobs:
 
           branch_lst=$(git branch)
           echo Branch list is $branch_lst
+
           echo Switching to PROD.
           git checkout prod
+          git pull origin prod
 
           echo creating $BRANCH_NAME branch
           git checkout -b $BRANCH_NAME 
 
-          git add .
+          git checkout main -- db_config.ini dbutils.py config.ini queries.py configuration.py db_ingest_script.py requirements.txt
+
+          echo $(ls -lrt)
+
+          git add db_config.ini dbutils.py config.ini queries.py configuration.py db_ingest_script.py requirements.txt
           git commit -m "Automating changes for PR script"
 
           git push origin $BRANCH_NAME
