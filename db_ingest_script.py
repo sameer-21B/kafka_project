@@ -45,7 +45,7 @@ def main_function(a=0,b=0):
     except Exception as e:
         logger.error(f"Exception {e} occured while Connecting to Database")
     
-    print("DB connection has been established")
+    print("DB Connection has been established")
 
     db_obj.cursor.execute('show tables;')
     output=db_obj.cursor.fetchall()

@@ -70,6 +70,10 @@ jobs:
         else
           BRANCH_NAME="auto-pr-$(date +%Y%m%d%H%M%S)"
           echo Branch_name is $BRANCH_NAME
+          echo Switching to PROD.
+          git checkout prod
+
+          echo creating $BRANCH_NAME branch
           git checkout -b $BRANCH_NAME 
 
           git add .
