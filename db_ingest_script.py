@@ -74,7 +74,7 @@ def main_function(a=0,b=0):
         batch_of_data = gc_obj.fetch_records(car_data)
         logger.info(f"Incrementing Global counter value by {gc_obj.records_in_a_batch}")
         gc_obj.set_global_counter_val()
-        logger.info(f"Commiting config data changes.")
+        logger.info(f"Commiting Config data changes.")
         gc_obj.write_config_data()
         db_obj.insert_records(batch_of_data)
         logger.info(f"Records from index {int(gc_obj.current_global_counter_val)-int(gc_obj.records_in_a_batch)} to {int(gc_obj.current_global_counter_val)} were inserted into table.")

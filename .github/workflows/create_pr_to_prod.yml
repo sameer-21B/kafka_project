@@ -70,6 +70,9 @@ jobs:
         else
           BRANCH_NAME="auto-pr-$(date +%Y%m%d%H%M%S)"
           echo Branch_name is $BRANCH_NAME
+
+          branch_lst=$(git branch)
+          echo Branch list is $branch_lst
           echo Switching to PROD.
           git checkout prod
 
