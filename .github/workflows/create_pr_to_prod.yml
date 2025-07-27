@@ -70,7 +70,7 @@ jobs:
         else
           BRANCH_NAME = "auto-pr-$(date +%Y%m%d%H%M%S)"
           echo Branch_name is $BRANCH_NAME
-          git checkout -b BRANCH_NAME 
+          git checkout -b $BRANCH_NAME 
 
           git add .
           git commit -m "Automating changes for PR script"

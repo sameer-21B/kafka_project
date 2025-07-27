@@ -63,7 +63,7 @@ def main_function(a=0,b=0):
         records=int(list(sys.argv)[1])
     else:
         records=len(car_data)
-    logger.info(f"Number of records to be processed is {records}.")
+    logger.info(f"Number of Records to be processed is {records}.")
 
     logger.info("Resetting global counter value to zero.")
     gc_obj.reset_global_counter_val()
