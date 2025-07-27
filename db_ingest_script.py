@@ -25,7 +25,7 @@ logger.setLevel(logging.INFO)
 def main_function(a=0,b=0):
     global logger,logfile_nm
 
-    logger.info(f"Name of Log File is {logfile_nm}")
+    logger.info(f"Name of Log File : {logfile_nm}")
 
     print("Accessing Dataframe")
     car_data=pd.read_csv('s3://input-data-car-sales/cardekho_dataset.csv',index_col=0)
