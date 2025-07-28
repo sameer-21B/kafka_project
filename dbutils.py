@@ -24,7 +24,7 @@ class Dbutils:
             
             self.cursor = self.cnx.cursor()
         except Exception as e:
-            print("Exception {} occured while trying to establish connection.".format(e))
+            print("Exception {} occured while trying to establish Connection.".format(e))
     
     def create_table(self):
         query = create_table_query.format(table_name=self.table_name)
