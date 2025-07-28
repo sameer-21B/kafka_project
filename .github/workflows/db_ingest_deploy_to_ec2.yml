@@ -24,8 +24,7 @@ env:
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
-
-    if: github.events.pull_request.merge == true
+    
     steps:
       - name: Checkout code from prod_branch
         uses: actions/checkout@v4
