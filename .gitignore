@@ -1,0 +1,4 @@
+Logs/
+__pycache__/
+aws_credentials_s3.txt
+kafka_env/

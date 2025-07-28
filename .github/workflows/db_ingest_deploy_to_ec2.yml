@@ -1,0 +1,59 @@
+name: CI/CD for deploying DB Ingest ETL script to EC2 instance.
+
+on:
+  pull_request:
+    types: [closed]
+    branches :
+      - prod
+    paths :
+      - 'config.ini'
+      - 'configuration.py'
+      - 'db_config.ini'
+      - 'db_ingest_script.py'
+      - 'dbutils.py'
+      - 'queries.py'
+      - 'requirements.txt'
+
+
+env:
+  AWS_REGION: ${{secrets.AWS_REGION}}
+  S3_BUCKET_NAME: ${{secrets.S3_BUCKET_NAME}}
+  CODE_DEPLOY_APPLICATION_NAME: ${{secrets.CODE_DEPLOY_APPLICATION_NAME}}
+  CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: ${{secrets.CODE_DEPLOY_DEPLOYMENT_GROUP_NAME}}
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+
+    if: github.events.pull_request.merge == true
+    steps:
+      - name: Checkout code from prod_branch
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies for running etl script
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Create Deployment package
+        run: |
+          zip -r deploy.zip . -x ".git/*" ".github/* "__pycache__/*" "venv/*"
+          ls -l deploy.zip
+
+      - name: Configuring aws s3 credentials
+        env:
+          AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
+          AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+        run: |
+          aws configure set aws_access_key_id "$AWS_ACCESS_KEY_ID"
+          aws configure set aws_secret_access_key "$AWS_SECRET_ACCESS_KEY"
+          aws configure set default.region ap-south-1
+          aws s3 ls
+
+      - name: Upload to S3
+        run: aws s3 cp deploy.zip s3://${{env.S3_BUCKET_NAME}}/etl-deploy-${{github.sha}}.zip
