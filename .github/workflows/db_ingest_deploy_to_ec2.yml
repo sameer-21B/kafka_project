@@ -24,7 +24,7 @@ env:
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout code from prod_branch
         uses: actions/checkout@v4
@@ -41,7 +41,7 @@ jobs:
 
       - name: Create Deployment package
         run: |
-          zip -r deploy.zip . -x ".git/*" ".github/* "__pycache__/*" "venv/*"
+          zip -r deploy.zip . -x ".git/*" ".github/*" "__pycache__/*" "venv/*"
           ls -l deploy.zip
 
       - name: Configuring aws s3 credentials
