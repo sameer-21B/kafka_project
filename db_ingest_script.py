@@ -27,7 +27,7 @@ def main_function(a=0,b=0):
 
     logger.info(f"Name of Log File : {logfile_nm}")
 
-    print("Accessing Dataframe")
+    print("Accessing Raw Data")
     car_data=pd.read_csv('s3://input-data-car-sales/cardekho_dataset.csv',index_col=0)
     car_data['Idx']=range(1,len(car_data)+1)
     car_data=car_data[['Idx']+list(car_data.columns)[:-1]]
