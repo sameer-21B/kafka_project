@@ -56,3 +56,12 @@ jobs:
 
       - name: Upload to S3
         run: aws s3 cp deploy.zip s3://${{env.S3_BUCKET_NAME}}/etl-deploy-${{github.sha}}.zip
+
+      - name: Deploying to EC2 with CodeDeploy
+        run: |
+          aws deploy create-deployment \
+            --application-name ${{env.CODE_DEPLOY_APPLICATION_NAME}} \
+            --deployment-group-name ${{env.CODE_DEPLOY_DEPLOYMENT_GROUP_NAME}} \
+            --deployment-config-name CodeDeployDefault.OneAtATime \
+            --description "ETL Script Deployment from Github Actions - ${{github.sha}}"
+            --s3-location bucket=${{env.S3_BUCKET_NAME}},bundleType=zip,key=etl-deploy-${{github.sha}}.zip
