@@ -1,8 +1,8 @@
 version: 0.0
 os: linux
 files:
-  - source:/
-    destination:/home/ec2_user/db_ingest
+  - source: /
+    destination: /home/ec2_user/db_ingest
 permissions:
   - object: /home/ec2_user/db_ingest
     pattern: "**"
@@ -23,5 +23,4 @@ hooks:
     - location: scripts/verify_deployment.sh
       timeout: 300
       runas: root
-
 
