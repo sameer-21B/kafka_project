@@ -3,7 +3,7 @@ echo "ApplicationStart hook (Verify Deployment): Checking ETL script readiness."
 cd /home/ec2_user/db_ingest
 
 # Optional: Run a quick syntax check or a dry-run test of the script
-python3 -c "import sys; sys.path.append('.'); import db_ingest_etl_script; print('Script syntax OK.')" || exit 1
+python3 -c "import sys; sys.path.append('.'); import db_ingest_script; print('Script syntax OK.')" || exit 1
 
 # **CRUCIAL FOR ETL:** Update the execution mechanism if necessary.
 # 1. Update Cron Job: (Most common for simple scheduling)

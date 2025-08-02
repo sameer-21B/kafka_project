@@ -6,8 +6,8 @@ files:
 permissions:
   - object: /home/ec2_user/db_ingest
     pattern: "**"
-    owner: ec2_user
-    group: ec2_user
+    owner: ec2-user
+    group: ec2-user
     mode: 755
 
 hooks:
